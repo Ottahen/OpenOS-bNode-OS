@@ -3,7 +3,7 @@
 **Version**: 1.0.0 Enhanced  
 **Designed by**: ℒ (OTTAHEN)  
 **Release Date**: June 2026  
-**License**: GPL v3 + MIT (Hybrid)
+**License**: GPL v3 + MIT (Hybrid) / OpenLICENSE
 
 ---
 
