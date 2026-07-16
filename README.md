@@ -25,7 +25,7 @@
 
 ## 🚀 Quick Start
 
-### Option 1: Docker (10-20 minutes)
+### Option 1: Docker (10-20 minutes)--
 ```bash
 docker build -f Dockerfile.openos -t openos-bnode:1.0 .
 docker run -it openos-bnode:1.0 bash
