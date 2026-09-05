@@ -1,0 +1,51 @@
+{
+  "app": "Game Emulators",
+  "description": "Comprehensive gaming emulation platform",
+  "version": "latest",
+  "category": "gaming",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "apt",
+    "packages": [
+      "retroarch",
+      "dolphin-emu",
+      "pcsx2",
+      "rpcs3",
+      "citra",
+      "yuzu",
+      "mame",
+      "dosbox",
+      "wine",
+      "proton",
+      "lutris",
+      "steam"
+    ]
+  },
+  "features": [
+    "Retro gaming (RetroArch)",
+    "Nintendo GameCube/Wii (Dolphin)",
+    "PlayStation 2 (PCSX2)",
+    "PlayStation 3 (RPCS3)",
+    "Nintendo 3DS (Citra)",
+    "Nintendo Switch (Yuzu)",
+    "Arcade games (MAME)",
+    "DOS games (DOSBox)",
+    "Windows games (Wine/Proton)",
+    "Game launcher (Lutris)",
+    "Steam integration",
+    "Native Linux games"
+  ],
+  "dependencies": [],
+  "permissions": ["storage", "gpu", "audio", "video"],
+  "config": {
+    "gpuAcceleration": true,
+    "vulkan": true,
+    "autoUpdate": true,
+    "gameLibraries": [
+      "steam",
+      "lutris",
+      "retroarch"
+    ]
+  }
+}

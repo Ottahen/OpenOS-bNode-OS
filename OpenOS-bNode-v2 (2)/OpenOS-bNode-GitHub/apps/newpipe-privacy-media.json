@@ -1,0 +1,60 @@
+{
+  "app": "NewPipe & Privacy Media",
+  "description": "Privacy-focused YouTube and media streaming",
+  "version": "latest",
+  "category": "media",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "apk",
+    "packages": [
+      "newpipe",
+      "newpipe-legacy",
+      "invidious",
+      "piped",
+      "youtube-dl",
+      "yt-dlp",
+      "mpv",
+      "vlc",
+      "freetube",
+      "clipgrab",
+      "minitube",
+      "smtube",
+      "vlc-plugin-base"
+    ]
+  },
+  "features": [
+    "YouTube without ads (NewPipe)",
+    "Privacy-focused YouTube (Invidious, Piped)",
+    "Video download (YouTube-DL, yt-dlp)",
+    "No Google tracking",
+    "No ads",
+    "Lightweight",
+    "Open-source",
+    "Multiple video sources",
+    "Playlist support",
+    "Subscription management",
+    "Video search",
+    "Comments viewing",
+    "History tracking (local only)",
+    "Offline viewing",
+    "Audio extraction",
+    "Format selection",
+    "Quality selection",
+    "Subtitle support"
+  ],
+  "dependencies": [],
+  "permissions": [
+    "network",
+    "storage",
+    "audio",
+    "video"
+  ],
+  "config": {
+    "adBlocking": true,
+    "tracking": false,
+    "privacy": true,
+    "autoUpdate": true,
+    "offlineMode": true
+  }
+}

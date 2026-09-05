@@ -1,0 +1,41 @@
+{
+  "app": "Vaultwarden",
+  "description": "Self-hosted password manager (Bitwarden compatible)",
+  "version": "latest",
+  "category": "security",
+  "preinstall": true,
+  "autostart": true,
+  "installation": {
+    "method": "docker",
+    "image": "vaultwarden/server:latest",
+    "ports": ["8082:80"],
+    "volumes": ["/data/vaultwarden:/data"],
+    "command": "docker run -d -p 8082:80 -v /data/vaultwarden:/data vaultwarden/server:latest"
+  },
+  "features": [
+    "Password management",
+    "Bitwarden compatible",
+    "End-to-end encryption",
+    "Self-hosted",
+    "No cloud dependency",
+    "Cross-platform",
+    "2FA support"
+  ],
+  "dependencies": ["docker"],
+  "permissions": [
+    "network",
+    "storage"
+  ],
+  "config": {
+    "domain": "localhost",
+    "port": 8082,
+    "https": true,
+    "encryption": true,
+    "twoFactor": true,
+    "dataDir": "/data/vaultwarden"
+  },
+  "services": {
+    "web": "http://localhost:8082",
+    "api": "http://localhost:8082/api"
+  }
+}

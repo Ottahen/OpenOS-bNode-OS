@@ -1,0 +1,46 @@
+{
+  "app": "Mailcow",
+  "description": "Self-hosted mail server with web interface",
+  "version": "latest",
+  "category": "email",
+  "preinstall": true,
+  "autostart": true,
+  "installation": {
+    "method": "docker-compose",
+    "repository": "https://github.com/mailcow/mailcow-dockerized.git",
+    "ports": ["80:80", "443:443", "25:25", "465:465", "587:587", "993:993", "995:995"],
+    "command": "git clone https://github.com/mailcow/mailcow-dockerized.git && cd mailcow-dockerized && docker-compose up -d"
+  },
+  "features": [
+    "Full-featured mail server",
+    "Web-based admin panel",
+    "Spam filtering",
+    "Virus scanning",
+    "SSL/TLS encryption",
+    "Multiple domains",
+    "User management"
+  ],
+  "dependencies": ["docker", "docker-compose"],
+  "permissions": [
+    "network",
+    "storage",
+    "system-admin"
+  ],
+  "config": {
+    "domain": "mail.example.com",
+    "ports": {
+      "smtp": 25,
+      "submission": 587,
+      "imap": 993,
+      "pop3": 995
+    },
+    "ssl": true,
+    "spamFilter": true,
+    "virusScanning": true
+  },
+  "services": {
+    "web": "https://localhost",
+    "smtp": "localhost:25",
+    "imap": "localhost:993"
+  }
+}

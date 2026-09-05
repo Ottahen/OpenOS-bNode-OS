@@ -1,0 +1,47 @@
+{
+  "app": "ANI-CLI",
+  "description": "Command-line anime streaming tool",
+  "version": "latest",
+  "category": "entertainment",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "git",
+    "repository": "https://github.com/pystardust/ani-cli.git",
+    "installPath": "/opt/ani-cli",
+    "command": "git clone https://github.com/pystardust/ani-cli.git /opt/ani-cli && cd /opt/ani-cli && sudo chmod +x ani-cli && sudo ln -s /opt/ani-cli/ani-cli /usr/local/bin/ani-cli"
+  },
+  "features": [
+    "Stream anime from terminal",
+    "No ads",
+    "Free",
+    "Open-source",
+    "Lightweight",
+    "Fast",
+    "Multiple sources"
+  ],
+  "dependencies": [
+    "bash",
+    "curl",
+    "fzf",
+    "mpv"
+  ],
+  "permissions": [
+    "network",
+    "terminal"
+  ],
+  "config": {
+    "player": "mpv",
+    "quality": "720p",
+    "autoplay": false,
+    "history": true
+  },
+  "usage": {
+    "command": "ani-cli",
+    "examples": [
+      "ani-cli",
+      "ani-cli --help",
+      "ani-cli search anime-name"
+    ]
+  }
+}

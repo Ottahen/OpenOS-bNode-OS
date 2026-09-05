@@ -1,0 +1,45 @@
+{
+  "app": "OpenOS/bNode Enterprise Tooling",
+  "version": "3.0-catalog",
+  "category": "enterprise",
+  "preinstall": false,
+  "delivery_model": "opt-in profile",
+  "summary": "Enterprise administration, development, platform engineering, observability, and collaboration tooling.",
+  "profiles": ["enterprise-core", "enterprise-services"],
+  "groups": [
+    "enterprise_operations",
+    "enterprise_platform",
+    "enterprise_services",
+    "observability_stack",
+    "identity_and_collaboration",
+    "developer_workstation"
+  ],
+  "safety_notes": [
+    "Server services are not started automatically by OpenOS/bNode.",
+    "Install local mail, identity, database, monitoring, or AI services only after planning capacity, backups, authentication, firewall rules, and TLS.",
+    "A 4 GB device should use the Lite profile or a remote server for enterprise services."
+  ],
+  "supported_sources": [
+    {
+      "name": "Ubuntu and Debian signed repositories",
+      "applies_to": ["core utilities", "platform tools", "operations tools"],
+      "url": "https://ubuntu.com/server/docs/package-management"
+    },
+    {
+      "name": "Cockpit Project",
+      "applies_to": ["Cockpit and Cockpit Podman"],
+      "url": "https://github.com/cockpit-project/cockpit-podman"
+    },
+    {
+      "name": "OpenTofu documentation",
+      "applies_to": ["Infrastructure as code"],
+      "url": "https://opentofu.org/docs/intro/install/"
+    },
+    {
+      "name": "ONLYOFFICE documentation",
+      "applies_to": ["Document editing service"],
+      "url": "https://helpcenter.onlyoffice.com/installation/docs-community-install-ubuntu.aspx"
+    }
+  ],
+  "catalog_file": "profiles/openos-tool-catalog.json"
+}

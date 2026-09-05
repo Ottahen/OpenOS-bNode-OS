@@ -1,0 +1,60 @@
+{
+  "app": "Privacy & Security Tools",
+  "description": "Privacy and security focused applications",
+  "version": "latest",
+  "category": "security",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "apt",
+    "packages": [
+      "tor",
+      "torbrowser-launcher",
+      "signal-desktop",
+      "syncthing",
+      "keepassxc",
+      "pass",
+      "veracrypt",
+      "cryptsetup",
+      "gnupg",
+      "kleopatra",
+      "fail2ban",
+      "aide",
+      "rkhunter",
+      "chkrootkit",
+      "lynis",
+      "clamav",
+      "clamav-daemon",
+      "ufw",
+      "gufw",
+      "openvpn",
+      "wireguard",
+      "i2p"
+    ]
+  },
+  "features": [
+    "Tor browser",
+    "Encrypted messaging (Signal)",
+    "File sync (Syncthing)",
+    "Password manager (KeePassXC)",
+    "Command-line passwords (Pass)",
+    "Disk encryption (VeraCrypt, Cryptsetup)",
+    "GPG encryption",
+    "Intrusion detection (Fail2ban, AIDE)",
+    "Rootkit detection (rkhunter, chkrootkit)",
+    "Security auditing (Lynis)",
+    "Antivirus (ClamAV)",
+    "Firewall (UFW, Gufw)",
+    "VPN (OpenVPN, WireGuard)",
+    "Anonymous network (I2P)",
+    "No telemetry",
+    "No tracking"
+  ],
+  "dependencies": [],
+  "permissions": ["system-admin", "network"],
+  "config": {
+    "autoUpdate": true,
+    "monitoring": true,
+    "encryption": true
+  }
+}

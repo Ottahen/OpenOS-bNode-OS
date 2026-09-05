@@ -1,0 +1,39 @@
+{
+  "app": "SearXNG",
+  "description": "Privacy-focused metasearch engine",
+  "version": "latest",
+  "category": "search",
+  "preinstall": true,
+  "autostart": true,
+  "installation": {
+    "method": "docker",
+    "image": "searxng/searxng:latest",
+    "ports": ["8084:8080"],
+    "command": "docker run -d -p 8084:8080 searxng/searxng:latest"
+  },
+  "features": [
+    "Privacy-focused search",
+    "No tracking",
+    "Decentralized",
+    "Multiple search engines",
+    "Open-source",
+    "Self-hosted",
+    "No ads"
+  ],
+  "dependencies": ["docker"],
+  "permissions": [
+    "network"
+  ],
+  "config": {
+    "domain": "localhost",
+    "port": 8084,
+    "https": true,
+    "noTracking": true,
+    "noAds": true,
+    "searchEngines": ["google", "bing", "duckduckgo", "wikipedia"]
+  },
+  "services": {
+    "web": "http://localhost:8084",
+    "api": "http://localhost:8084/api"
+  }
+}

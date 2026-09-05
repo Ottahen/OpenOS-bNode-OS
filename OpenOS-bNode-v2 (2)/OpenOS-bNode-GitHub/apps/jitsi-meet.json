@@ -1,0 +1,41 @@
+{
+  "app": "Jitsi Meet",
+  "description": "Open-source video conferencing platform",
+  "version": "latest",
+  "category": "communication",
+  "preinstall": true,
+  "autostart": true,
+  "installation": {
+    "method": "docker-compose",
+    "image": "jitsi/jitsi-meet:latest",
+    "ports": ["8080:80", "8443:443"],
+    "command": "docker run -d -p 8080:80 -p 8443:443 jitsi/jitsi-meet:latest"
+  },
+  "features": [
+    "Video conferencing",
+    "Screen sharing",
+    "Recording",
+    "Encryption",
+    "No account required",
+    "Open-source",
+    "Self-hosted"
+  ],
+  "dependencies": ["docker"],
+  "permissions": [
+    "network",
+    "audio",
+    "video",
+    "microphone"
+  ],
+  "config": {
+    "domain": "localhost",
+    "port": 8080,
+    "https": true,
+    "maxParticipants": 100,
+    "recordingEnabled": true
+  },
+  "services": {
+    "web": "http://localhost:8080",
+    "rtc": "enabled"
+  }
+}

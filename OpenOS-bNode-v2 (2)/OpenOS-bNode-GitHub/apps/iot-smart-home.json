@@ -1,0 +1,49 @@
+{
+  "app": "IoT & Smart Home",
+  "description": "IoT and smart home automation platform",
+  "version": "latest",
+  "category": "iot",
+  "preinstall": true,
+  "autostart": true,
+  "installation": {
+    "method": "docker",
+    "services": [
+      {
+        "name": "home-assistant",
+        "image": "homeassistant/home-assistant:latest",
+        "ports": ["8123:8123"],
+        "volumes": ["/data/home-assistant:/config"]
+      },
+      {
+        "name": "node-red",
+        "image": "nodered/node-red:latest",
+        "ports": ["1880:1880"],
+        "volumes": ["/data/node-red:/data"]
+      },
+      {
+        "name": "mosquitto",
+        "image": "eclipse-mosquitto:latest",
+        "ports": ["1883:1883"]
+      }
+    ]
+  },
+  "features": [
+    "Home automation (Home Assistant)",
+    "Flow automation (Node-RED)",
+    "MQTT broker (Mosquitto)",
+    "Device integration",
+    "Automation rules",
+    "Scene management",
+    "Energy monitoring",
+    "Security integration",
+    "Voice control",
+    "Mobile app support"
+  ],
+  "dependencies": ["docker"],
+  "permissions": ["network", "storage", "system-admin"],
+  "config": {
+    "autoUpdate": true,
+    "mqtt": true,
+    "integrations": true
+  }
+}

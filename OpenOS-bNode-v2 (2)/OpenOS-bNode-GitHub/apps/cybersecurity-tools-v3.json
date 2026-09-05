@@ -1,0 +1,56 @@
+{
+  "app": "OpenOS/bNode Cybersecurity Tooling",
+  "version": "3.0-catalog",
+  "category": "defensive-security-and-authorized-lab",
+  "preinstall": false,
+  "delivery_model": "opt-in profile",
+  "summary": "Endpoint hardening, audit, network defense, incident response, forensics, DevSecOps, and an isolated authorized-assessment lab profile.",
+  "profiles": ["security-defensive", "security-lab"],
+  "groups": [
+    "defensive_endpoint",
+    "network_diagnostics",
+    "defensive_network",
+    "forensics_and_ir",
+    "devsecops",
+    "security_lab_authorized"
+  ],
+  "policy": {
+    "default_profile": "security-defensive",
+    "active_testing_tools": "security-lab only",
+    "explicit_authorization_required": true,
+    "service_activation": "manual"
+  },
+  "safety_notes": [
+    "The defensive profile prioritizes hardening, auditing, monitoring, vulnerability management, incident response, and forensics.",
+    "The isolated lab profile contains active-assessment utilities and must only be used against systems, applications, and networks for which the operator has explicit authorization.",
+    "No tool in this manifest bypasses authentication, gains unauthorized access, or is configured to scan public targets automatically."
+  ],
+  "supported_sources": [
+    {
+      "name": "Debian packages: Lynis",
+      "applies_to": ["hardening audit"],
+      "url": "https://packages.debian.org/sid/utils/lynis"
+    },
+    {
+      "name": "CrowdSec Linux installation documentation",
+      "applies_to": ["detection and optional remediation"],
+      "url": "https://docs.crowdsec.net/u/getting_started/installation/linux"
+    },
+    {
+      "name": "Wazuh agent deployment documentation",
+      "applies_to": ["endpoint monitoring agent"],
+      "url": "https://documentation.wazuh.com/current/installation-guide/wazuh-agent/wazuh-agent-package-linux.html"
+    },
+    {
+      "name": "Semgrep Community Edition documentation",
+      "applies_to": ["static application security testing"],
+      "url": "https://docs.semgrep.dev/getting-started/quickstart-ce"
+    },
+    {
+      "name": "Kali Linux metapackage documentation",
+      "applies_to": ["authorized lab package grouping reference"],
+      "url": "https://www.kali.org/docs/general-use/metapackages/"
+    }
+  ],
+  "catalog_file": "profiles/openos-tool-catalog.json"
+}

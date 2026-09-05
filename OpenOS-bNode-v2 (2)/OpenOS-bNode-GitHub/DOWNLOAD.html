@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenOS/bNode - Download</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a1428 0%, #1a2a4a 50%, #2a1a4a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #00d9ff, #8b5cf6);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #a0aec0;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .version {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.1);
+            color: #00d9ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .features h3 {
+            color: #00d9ff;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00d9ff;
+            font-weight: bold;
+        }
+
+        .download-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 217, 255, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .file-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00d9ff, #8b5cf6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .file-details {
+            text-align: left;
+        }
+
+        .file-name {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .file-size {
+            color: #a0aec0;
+            font-size: 13px;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #00d9ff, #00b4cc);
+            color: #0a1428;
+            border: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-text {
+            color: #a0aec0;
+            font-size: 13px;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #00d9ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #8b5cf6;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            color: #00d9ff;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #a0aec0;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .download-section {
+                padding: 20px;
+            }
+
+            .file-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .file-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .file-details {
+                text-align: center;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">📦</div>
+            <h1>OpenOS/bNode</h1>
+            <p class="subtitle">Privacy-First Linux Operating System</p>
+            <div class="version">v1.0.0 Enhanced <span class="badge">READY</span></div>
+        </div>
+
+        <div class="features">
+            <h3>✨ Features Included</h3>
+            <ul class="feature-list">
+                <li>ClamAV Antivirus (pre-installed)</li>
+                <li>UFW Firewall (pre-configured)</li>
+                <li>OpenVPN (ready to use)</li>
+                <li>Waydroid (Android APK support)</li>
+                <li>Brave Browser + VS Code</li>
+                <li>Zero telemetry & tracking</li>
+                <li>Glassmorphic UI design</li>
+                <li>Complete documentation</li>
+            </ul>
+        </div>
+
+        <div class="download-section">
+            <div class="file-info">
+                <div class="file-icon">📥</div>
+                <div class="file-details">
+                    <div class="file-name">OpenOS-bNode-v1.0.0-Complete.zip</div>
+                    <div class="file-size">2.0 MB (Compressed) • 2.65 MB (Uncompressed)</div>
+                </div>
+            </div>
+
+            <button class="download-btn" onclick="downloadFile()">⬇️ DOWNLOAD NOW</button>
+
+            <div class="info-text">
+                ✓ All files included • ✓ Ready for GitHub • ✓ One-click upload<br>
+                ✓ 19 files organized • ✓ Build scripts included • ✓ Complete documentation
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">19</div>
+                    <div class="stat-label">Files</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2.0 MB</div>
+                    <div class="stat-label">Size</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Complete</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Designed by <strong>ℒ (OTTAHEN)</strong> • 
+            <a href="https://github.com/openos-bnode/os" target="_blank">GitHub</a> • 
+            <a href="https://openos-bnode.dev" target="_blank">Website</a></p>
+            <p style="margin-top: 15px; color: #475569;">
+                License: GPL v3 + MIT • Open Source • Privacy First
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function downloadFile() {
+            // Create a link element
+            const link = document.createElement('a');
+            
+            // Set the file path (this would be served from your server)
+            link.href = 'OpenOS-bNode-v1.0.0-Complete.zip';
+            
+            // Set the download attribute with filename
+            link.download = 'OpenOS-bNode-v1.0.0-Complete.zip';
+            
+            // Append to body (required for Firefox)
+            document.body.appendChild(link);
+            
+            // Trigger the download
+            link.click();
+            
+            // Remove the link
+            document.body.removeChild(link);
+        }
+
+        // Alternative: Show download options
+        function showDownloadOptions() {
+            alert('Download options:\n\n1. Click the button above\n2. Or download from GitHub\n3. Or use: wget https://github.com/openos-bnode/os/releases/download/v1.0.0/OpenOS-bNode-v1.0.0-Complete.zip');
+        }
+    </script>
+</body>
+</html>

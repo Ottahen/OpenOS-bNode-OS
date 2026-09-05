@@ -1,0 +1,50 @@
+{
+  "app": "Multimedia & Graphics",
+  "description": "Advanced multimedia and graphics tools",
+  "version": "latest",
+  "category": "multimedia",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "apt",
+    "packages": [
+      "vlc",
+      "mpv",
+      "ffmpeg",
+      "handbrake",
+      "shotcut",
+      "kdenlive",
+      "openshot",
+      "pitivi",
+      "avidemux",
+      "mediainfo",
+      "exiftool",
+      "imagemagick",
+      "graphicsmagick",
+      "potrace",
+      "fontforge",
+      "texmaker",
+      "pdfshuffler",
+      "ghostscript"
+    ]
+  },
+  "features": [
+    "Video playback (VLC, MPV)",
+    "Video encoding (FFmpeg, Handbrake)",
+    "Video editing (Shotcut, Kdenlive, OpenShot, Pitivi)",
+    "Video manipulation (Avidemux)",
+    "Media information",
+    "Image metadata (Exiftool)",
+    "Image processing (ImageMagick, GraphicsMagick)",
+    "Bitmap to vector (Potrace)",
+    "Font creation (FontForge)",
+    "PDF manipulation",
+    "PostScript processing"
+  ],
+  "dependencies": [],
+  "permissions": ["storage", "gpu"],
+  "config": {
+    "gpuAcceleration": true,
+    "autoUpdate": true
+  }
+}
