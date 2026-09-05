@@ -261,22 +261,18 @@ See `OPENOS-SECURITY-ANDROID-FEATURES.md` for complete Android guide.
 
 ## 🌐 Online Resources
 
-- **Official Website**: https://openos-bnode.dev
-- **GitHub Repository**: https://github.com/openos-bnode/os
-- **Documentation**: https://docs.openos-bnode.dev
-- **Community Forum**: https://forum.openos-bnode.dev
-- **Discord Server**: https://discord.gg/openos-bnode
-- **Email Support**: support@openos-bnode.dev
-
+- **Official Website**: https://primeact.vercel.app
+- **GitHub Repository**: [https://github.com/openos-bnode/os](https://github.com/Ottahen/OpenOS-bNode-OS/)
+- **Documentation**: 
+- **Community Forum**:
+- **Discord Server**: :) soon
+- **Email Support**: OpenStone@proton.me
 ---
 
 ## 📞 Support
 
-- **Quick Questions**: Discord https://discord.gg/openos-bnode
-- **Detailed Help**: Forum https://forum.openos-bnode.dev
-- **Bug Reports**: GitHub Issues https://github.com/openos-bnode/os/issues
-- **Email Support**: support@openos-bnode.dev
 
+- **Email Support**: OpenStone@proton.me
 ---
 
 ## 🤝 Contributing
