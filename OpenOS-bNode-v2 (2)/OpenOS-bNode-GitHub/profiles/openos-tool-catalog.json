@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "catalog_name": "OpenOS/bNode Enterprise & Security Catalog",
+  "catalog_purpose": "A curated catalog. Tools are grouped into opt-in profiles; the catalog is not a claim that every service is enabled by default.",
+  "profiles": {
+    "lite": {
+      "description": "4 GB RAM-friendly desktop, productivity, endpoint hardening, and basic diagnostics.",
+      "minimum_ram_gb": 4,
+      "default_enabled": true,
+      "install_groups": ["base_desktop", "defensive_endpoint", "network_diagnostics"]
+    },
+    "desktop": {
+      "description": "General desktop and developer workstation profile.",
+      "minimum_ram_gb": 8,
+      "default_enabled": false,
+      "install_groups": ["base_desktop", "developer_workstation", "enterprise_operations", "defensive_endpoint", "network_diagnostics"]
+    },
+    "enterprise-core": {
+      "description": "Enterprise workstation tools, automation, backup, virtualization, and operations management.",
+      "minimum_ram_gb": 8,
+      "default_enabled": false,
+      "install_groups": ["base_desktop", "developer_workstation", "enterprise_operations", "enterprise_platform", "defensive_endpoint", "network_diagnostics"]
+    },
+    "enterprise-services": {
+      "description": "Optional local-server profile for lab or homelab use. Services stay disabled until deliberately configured.",
+      "minimum_ram_gb": 16,
+      "default_enabled": false,
+      "warning": "Not appropriate for a 4 GB device. Deploy individual services on a separate server or VM.",
+      "install_groups": ["enterprise_services", "observability_stack", "identity_and_collaboration"]
+    },
+    "security-defensive": {
+      "description": "Endpoint hardening, audit, logging, network defense, incident triage, and secure administration.",
+      "minimum_ram_gb": 8,
+      "default_enabled": false,
+      "install_groups": ["defensive_endpoint", "network_diagnostics", "defensive_network", "forensics_and_ir", "devsecops"]
+    },
+    "security-lab": {
+      "description": "Authorized training and assessment lab. High-impact or active-testing tools are isolated from the default desktop profile.",
+      "minimum_ram_gb": 16,
+      "default_enabled": false,
+      "warning": "Use only against systems for which you have explicit authorization.",
+      "install_groups": ["security_lab_authorized", "forensics_and_ir", "devsecops", "network_diagnostics"]
+    }
+  },
+  "groups": {
+    "base_desktop": {
+      "type": "apt",
+      "tools": ["bash", "bash-completion", "zsh", "fish", "vim", "neovim", "nano", "tmux", "screen", "htop", "btop", "ncdu", "ripgrep", "fd-find", "bat", "fzf", "jq", "yq", "curl", "wget", "httpie", "aria2", "rsync", "rclone", "restic", "borgbackup", "gnupg", "pass", "keepassxc", "flatpak"]
+    },
+    "developer_workstation": {
+      "type": "apt",
+      "tools": ["git", "git-lfs", "gitk", "gh", "build-essential", "cmake", "ninja-build", "pkg-config", "gcc", "g++", "clang", "lld", "gdb", "lldb", "valgrind", "strace", "ltrace", "python3", "python3-pip", "python3-venv", "pipx", "nodejs", "npm", "openjdk-21-jdk", "golang-go", "rustc", "cargo", "ruby-full", "php-cli", "shellcheck", "yamllint", "sqlite3"]
+    },
+    "enterprise_operations": {
+      "type": "apt",
+      "tools": ["ansible", "ansible-lint", "sshpass", "mosh", "etckeeper", "sudo", "policykit-1", "acl", "attr", "samba", "samba-common-bin", "cifs-utils", "nfs-common", "nfs-kernel-server", "open-iscsi", "lvm2", "mdadm", "smartmontools", "nvme-cli", "hdparm", "parted", "gparted", "cryptsetup", "cryptsetup-initramfs", "usbguard", "qemu-guest-agent", "libvirt-daemon-system", "libvirt-clients", "virt-manager", "cloud-init", "cloud-utils", "whois"]
+    },
+    "enterprise_platform": {
+      "type": "apt",
+      "tools": ["podman", "buildah", "skopeo", "docker.io", "docker-compose-v2", "containerd", "crun", "slirp4netns", "fuse-overlayfs", "cockpit", "cockpit-storaged", "cockpit-networkmanager", "cockpit-packagekit", "cockpit-podman", "cockpit-machines", "nginx", "apache2", "haproxy", "traefik", "certbot", "python3-certbot-nginx", "ufw", "nftables", "firewalld", "openssh-server", "openssh-client", "mariadb-client", "postgresql-client", "redis-tools", "ldap-utils", "krb5-user"]
+    },
+    "enterprise_services": {
+      "type": "apt",
+      "tools": ["postgresql", "postgresql-contrib", "mariadb-server", "redis-server", "memcached", "rabbitmq-server", "mosquitto", "mosquitto-clients", "bind9", "bind9-dnsutils", "kea", "freeradius", "freeradius-utils", "postfix", "dovecot-imapd", "dovecot-pop3d", "roundcube", "openvpn", "wireguard", "strongswan", "squid", "samba", "nfs-kernel-server", "minio", "git-lfs", "gitea", "nextcloud-desktop", "syncthing", "prosody", "coturn", "certbot"]
+    },
+    "observability_stack": {
+      "type": "apt",
+      "tools": ["prometheus", "prometheus-node-exporter", "prometheus-alertmanager", "grafana", "telegraf", "collectd", "munin", "nagios4", "nagios-plugins", "zabbix-agent2", "netdata", "rsyslog", "logrotate", "logwatch", "sysstat", "atop", "iotop", "iftop", "nethogs", "vnstat", "dstat", "glances"]
+    },
+    "identity_and_collaboration": {
+      "type": "container-or-apt",
+      "tools": ["keycloak", "freeipa", "authelia", "authentik", "nextcloud", "onlyoffice-documentserver", "element-desktop", "matrix-synapse", "jitsi-meet", "vaultwarden", "gitea", "searxng", "open-webui", "ollama", "mattermost", "zammad", "plane", "outline", "bookstack", "wikijs"]
+    },
+    "defensive_endpoint": {
+      "type": "apt",
+      "tools": ["apparmor", "apparmor-utils", "apparmor-profiles", "auditd", "audispd-plugins", "aide", "aide-common", "lynis", "clamav", "clamav-daemon", "clamav-freshclam", "rkhunter", "chkrootkit", "debsums", "debsig-verify", "debsecan", "apt-listbugs", "needrestart", "unattended-upgrades", "fail2ban", "crowdsec", "crowdsec-firewall-bouncer-iptables", "libpam-pwquality", "libpam-google-authenticator", "pam-tmpdir", "tlog", "fapolicyd", "openSCAP", "scap-security-guide", "kernel-hardening-checker", "checksecurity", "tripwire", "samhain", "osquery", "wazuh-agent", "yubikey-manager", "pcscd", "pcsc-tools", "gnupg", "age", "sops", "pass", "keepassxc", "wireguard-tools", "openvpn", "tor", "torsocks", "proxychains4"]
+    },
+    "network_diagnostics": {
+      "type": "apt",
+      "tools": ["iproute2", "iputils-ping", "traceroute", "mtr-tiny", "dnsutils", "bind9-dnsutils", "whois", "nmap", "masscan", "tcpdump", "tshark", "wireshark", "netcat-openbsd", "socat", "iperf3", "ethtool", "arp-scan", "macchanger", "net-tools", "bridge-utils", "vlan", "wireguard-tools", "openvpn", "sshuttle", "autossh", "termshark", "speedtest-cli", "geoip-bin"]
+    },
+    "defensive_network": {
+      "type": "apt",
+      "tools": ["suricata", "snort", "zeek", "zeekctl", "nfdump", "ntopng", "zmap", "p0f", "netdiscover", "yara", "yara-doc", "yara-python", "clamav", "bro", "arkime", "wazuh-agent", "osquery", "filebeat", "auditbeat", "packetbeat", "elastic-agent", "crowdsec", "fail2ban", "nftables", "ufw", "firewalld", "iptables", "ipset", "conntrack", "tshark", "tcpdump"]
+    },
+    "forensics_and_ir": {
+      "type": "apt-or-pipx",
+      "tools": ["autopsy", "sleuthkit", "testdisk", "foremost", "scalpel", "dc3dd", "guymager", "ewf-tools", "afflib-tools", "libimage-exiftool-perl", "exiv2", "binwalk", "bulk-extractor", "hashdeep", "ssdeep", "hashid", "yara", "volatility3", "plaso", "timesketch", "log2timeline", "dislocker", "chntpw", "libewf", "memdump", "gdb", "radare2", "ghidra", "hexdump", "xxd", "strings", "file", "pdfinfo", "qpdf", "oletools", "exiftool"]
+    },
+    "devsecops": {
+      "type": "apt-or-pipx-or-container",
+      "tools": ["bandit", "pip-audit", "semgrep", "checkov", "safety", "gitleaks", "trivy", "syft", "grype", "osv-scanner", "hadolint", "shellcheck", "yamllint", "ansible-lint", "kube-bench", "kube-hunter", "kubesec", "k9s", "kubectl", "helm", "kustomize", "terraform", "opentofu", "packer", "vault", "consul", "nomad", "opa", "conftest", "cosign", "sigstore", "slsa-verifier", "git-secrets", "pre-commit", "trufflehog", "dependency-check", "zap", "nuclei"]
+    },
+    "security_lab_authorized": {
+      "type": "apt-or-container",
+      "tools": ["metasploit-framework", "zaproxy", "burpsuite", "sqlmap", "nikto", "ffuf", "wfuzz", "gobuster", "dirb", "feroxbuster", "whatweb", "wapiti", "nuclei", "httpx-toolkit", "amass", "subfinder", "theharvester", "recon-ng", "maltego", "spiderfoot", "shodan", "searchsploit", "exploitdb", "hydra", "medusa", "ncrack", "john", "hashcat", "hashcat-utils", "cewl", "crunch", "wordlists", "aircrack-ng", "hcxdumptool", "hcxtools", "wifite", "reaver", "bully", "kismet", "bettercap", "responder", "impacket-scripts", "enum4linux-ng", "smbclient", "smbmap", "crackmapexec", "evil-winrm", "kerbrute", "bloodhound", "bloodhound-python", "scapy", "pwntools", "boofuzz", "radamsa", "afl++", "gdb", "radare2", "ghidra"]
+    }
+  },
+  "governance": {
+    "safe_default": "lite",
+    "services_default": "disabled",
+    "external_sources": "Must be installed from a signed upstream repository or a pinned container image after an administrator review.",
+    "authorized_use": "Active assessment and exploitation-oriented tools must be used only on systems, applications, and networks for which explicit authorization exists."
+  }
+}

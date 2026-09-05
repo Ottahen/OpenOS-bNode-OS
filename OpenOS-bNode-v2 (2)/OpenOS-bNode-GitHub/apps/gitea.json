@@ -1,0 +1,43 @@
+{
+  "app": "Gitea",
+  "description": "Self-hosted Git service (GitHub alternative)",
+  "version": "latest",
+  "category": "development",
+  "preinstall": true,
+  "autostart": true,
+  "installation": {
+    "method": "docker",
+    "image": "gitea/gitea:latest",
+    "ports": ["3000:3000", "2222:22"],
+    "volumes": ["/data/gitea:/data"],
+    "command": "docker run -d -p 3000:3000 -p 2222:22 -v /data/gitea:/data gitea/gitea:latest"
+  },
+  "features": [
+    "Git repository hosting",
+    "GitHub-like interface",
+    "Issue tracking",
+    "Pull requests",
+    "Wiki",
+    "CI/CD integration",
+    "Self-hosted",
+    "Lightweight"
+  ],
+  "dependencies": ["docker"],
+  "permissions": [
+    "network",
+    "storage"
+  ],
+  "config": {
+    "domain": "localhost",
+    "port": 3000,
+    "ssh_port": 2222,
+    "https": true,
+    "dataDir": "/data/gitea",
+    "database": "sqlite3"
+  },
+  "services": {
+    "web": "http://localhost:3000",
+    "ssh": "ssh://localhost:2222",
+    "api": "http://localhost:3000/api"
+  }
+}

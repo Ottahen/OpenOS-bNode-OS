@@ -1,0 +1,39 @@
+{
+  "app": "AFFiNE",
+  "description": "Open-source knowledge base and collaborative workspace",
+  "version": "latest",
+  "category": "productivity",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "docker",
+    "image": "affine:latest",
+    "ports": ["8083:3010"],
+    "command": "docker run -d -p 8083:3010 affine:latest"
+  },
+  "features": [
+    "Note-taking",
+    "Whiteboarding",
+    "Database",
+    "Collaborative editing",
+    "Open-source",
+    "Self-hosted option",
+    "Real-time sync"
+  ],
+  "dependencies": ["docker"],
+  "permissions": [
+    "network",
+    "storage"
+  ],
+  "config": {
+    "domain": "localhost",
+    "port": 8083,
+    "https": true,
+    "collaboration": true,
+    "sync": true
+  },
+  "services": {
+    "web": "http://localhost:8083",
+    "api": "http://localhost:8083/api"
+  }
+}

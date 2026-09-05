@@ -1,0 +1,40 @@
+{
+  "app": "Element (Matrix)",
+  "description": "Decentralized encrypted messaging platform",
+  "version": "latest",
+  "category": "communication",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "docker",
+    "image": "vectorim/element-web:latest",
+    "ports": ["8081:80"],
+    "command": "docker run -d -p 8081:80 vectorim/element-web:latest"
+  },
+  "features": [
+    "Encrypted messaging",
+    "Decentralized communication",
+    "Voice and video calls",
+    "File sharing",
+    "Open-source",
+    "Matrix protocol",
+    "Cross-platform"
+  ],
+  "dependencies": ["docker"],
+  "permissions": [
+    "network",
+    "audio",
+    "video"
+  ],
+  "config": {
+    "domain": "localhost",
+    "port": 8081,
+    "encryption": true,
+    "e2ee": true,
+    "homeserver": "https://matrix.org"
+  },
+  "services": {
+    "web": "http://localhost:8081",
+    "protocol": "matrix"
+  }
+}

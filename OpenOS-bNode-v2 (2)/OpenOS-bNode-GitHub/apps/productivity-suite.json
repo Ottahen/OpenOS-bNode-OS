@@ -1,0 +1,35 @@
+{
+  "app": "Productivity Suite",
+  "description": "Complete office and productivity tools",
+  "version": "latest",
+  "category": "productivity",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "apt",
+    "packages": [
+      "libreoffice-calc",
+      "libreoffice-writer",
+      "libreoffice-impress",
+      "libreoffice-draw",
+      "libreoffice-math",
+      "libreoffice-base"
+    ]
+  },
+  "features": [
+    "Word processing",
+    "Spreadsheets",
+    "Presentations",
+    "Drawing",
+    "Database",
+    "Formula editor",
+    "PDF export",
+    "Microsoft Office compatible"
+  ],
+  "dependencies": [],
+  "permissions": ["storage", "network"],
+  "config": {
+    "autoUpdate": true,
+    "defaultFormat": "odt"
+  }
+}

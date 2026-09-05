@@ -1,0 +1,60 @@
+{
+  "app": "System Utilities & Monitoring",
+  "description": "System management and monitoring tools",
+  "version": "latest",
+  "category": "system",
+  "preinstall": true,
+  "autostart": true,
+  "installation": {
+    "method": "apt",
+    "packages": [
+      "cockpit",
+      "netdata",
+      "prometheus",
+      "grafana",
+      "zabbix-agent",
+      "uptime-kuma",
+      "glances",
+      "iotop",
+      "nethogs",
+      "iftop",
+      "lsof",
+      "nmap",
+      "wireshark",
+      "tcpdump",
+      "iperf3",
+      "speedtest-cli",
+      "baobab",
+      "gparted",
+      "smartctl",
+      "nvme-cli"
+    ]
+  },
+  "features": [
+    "System dashboard (Cockpit)",
+    "Real-time monitoring (Netdata)",
+    "Metrics collection (Prometheus)",
+    "Visualization (Grafana)",
+    "Monitoring agent (Zabbix)",
+    "Uptime monitoring (Uptime Kuma)",
+    "System stats (Glances)",
+    "I/O monitoring (iotop)",
+    "Network monitoring (nethogs, iftop)",
+    "File descriptor viewer (lsof)",
+    "Network scanning (nmap)",
+    "Packet analysis (Wireshark)",
+    "Network testing (iperf3)",
+    "Speed testing",
+    "Disk usage (Baobab)",
+    "Partition manager (GParted)",
+    "Drive health (smartctl)",
+    "NVMe management"
+  ],
+  "dependencies": [],
+  "permissions": ["system-admin", "network"],
+  "config": {
+    "autoUpdate": true,
+    "monitoring": true,
+    "alerts": true
+  }
+}

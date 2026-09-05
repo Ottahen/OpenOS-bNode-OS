@@ -1,0 +1,30 @@
+{
+  "app": "Aurora Store",
+  "description": "Alternative Google Play Store for Android apps",
+  "version": "latest",
+  "category": "app-store",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "apk",
+    "source": "https://github.com/Aurora-Store/AuroraStore/releases/download/latest/AuroraStore.apk",
+    "command": "waydroid app install aurora-store.apk"
+  },
+  "features": [
+    "Download Android apps without Google Play",
+    "Privacy-focused app store",
+    "No tracking",
+    "Free and open-source",
+    "Works with Waydroid"
+  ],
+  "dependencies": ["waydroid"],
+  "permissions": [
+    "internet",
+    "storage"
+  ],
+  "config": {
+    "autoUpdate": true,
+    "checkForUpdates": true,
+    "privacyMode": true
+  }
+}

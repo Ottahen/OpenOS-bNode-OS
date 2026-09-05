@@ -1,0 +1,50 @@
+{
+  "app": "Learning & Education",
+  "description": "Educational and learning tools",
+  "version": "latest",
+  "category": "education",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "apt",
+    "packages": [
+      "anki",
+      "geogebra",
+      "maxima",
+      "octave",
+      "scilab",
+      "jupyter",
+      "jupyterlab",
+      "python3-scipy",
+      "python3-numpy",
+      "python3-matplotlib",
+      "python3-pandas",
+      "r-base",
+      "rstudio",
+      "texlive",
+      "texstudio",
+      "miktex",
+      "calibre",
+      "zotero"
+    ]
+  },
+  "features": [
+    "Flashcard learning (Anki)",
+    "Mathematics (GeoGebra, Maxima)",
+    "Scientific computing (Octave, Scilab)",
+    "Jupyter notebooks",
+    "Python data science stack",
+    "R statistics",
+    "RStudio IDE",
+    "LaTeX/PDF creation",
+    "E-book management (Calibre)",
+    "Citation management (Zotero)",
+    "Research tools"
+  ],
+  "dependencies": [],
+  "permissions": ["storage", "network"],
+  "config": {
+    "autoUpdate": true,
+    "jupyter": true
+  }
+}

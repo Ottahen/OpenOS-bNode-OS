@@ -1,0 +1,52 @@
+{
+  "app": "Entertainment & Streaming",
+  "description": "Media streaming and entertainment platforms",
+  "version": "latest",
+  "category": "entertainment",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "docker",
+    "services": [
+      {
+        "name": "jellyfin",
+        "image": "jellyfin/jellyfin:latest",
+        "ports": ["8096:8096"],
+        "volumes": ["/media:/media"]
+      },
+      {
+        "name": "kodi",
+        "image": "linuxserver/kodi:latest",
+        "ports": ["8080:8080"]
+      },
+      {
+        "name": "plex",
+        "image": "plexinc/pms-docker:latest",
+        "ports": ["32400:32400"]
+      },
+      {
+        "name": "stremio",
+        "image": "stremio/stremio:latest",
+        "ports": ["11470:11470"]
+      }
+    ]
+  },
+  "features": [
+    "Personal media server (Jellyfin)",
+    "Media center (Kodi)",
+    "Streaming service (Plex)",
+    "Movie/TV streaming (Stremio)",
+    "Anime streaming (ANI-CLI)",
+    "Video player (VLC, MPV)",
+    "Music player (Spotify, YouTube Music)",
+    "Podcast manager",
+    "Subtitle management"
+  ],
+  "dependencies": ["docker"],
+  "permissions": ["storage", "network", "audio", "video"],
+  "config": {
+    "mediaLibrary": "/media",
+    "autoOrganize": true,
+    "transcoding": true
+  }
+}

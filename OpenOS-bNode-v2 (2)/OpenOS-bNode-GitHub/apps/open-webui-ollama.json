@@ -1,0 +1,59 @@
+{
+  "app": "Open WebUI + OLLAMA",
+  "description": "Local AI models with web interface",
+  "version": "latest",
+  "category": "ai-ml",
+  "preinstall": true,
+  "autostart": true,
+  "installation": {
+    "method": "docker-compose",
+    "services": [
+      {
+        "name": "ollama",
+        "image": "ollama/ollama:latest",
+        "ports": ["11434:11434"],
+        "volumes": ["/data/ollama:/root/.ollama"],
+        "gpu": true
+      },
+      {
+        "name": "open-webui",
+        "image": "ghcr.io/open-webui/open-webui:latest",
+        "ports": ["8085:8080"],
+        "environment": ["OLLAMA_API_BASE_URL=http://ollama:11434"]
+      }
+    ]
+  },
+  "features": [
+    "Local AI models",
+    "No cloud required",
+    "Privacy-first",
+    "GPU acceleration",
+    "Web interface",
+    "Multiple models",
+    "Chat interface",
+    "Code generation"
+  ],
+  "dependencies": ["docker", "docker-compose"],
+  "permissions": [
+    "network",
+    "storage",
+    "gpu"
+  ],
+  "config": {
+    "ollama": {
+      "port": 11434,
+      "models": ["llama2", "mistral", "neural-chat", "codellama"],
+      "gpuEnabled": true
+    },
+    "webui": {
+      "port": 8085,
+      "https": true,
+      "ollama_api": "http://localhost:11434"
+    }
+  },
+  "services": {
+    "webui": "http://localhost:8085",
+    "ollama_api": "http://localhost:11434",
+    "models": ["llama2", "mistral", "neural-chat", "codellama", "orca"]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "app": "Media & Design Suite",
+  "description": "Professional media editing and design tools",
+  "version": "latest",
+  "category": "media",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "apt",
+    "packages": [
+      "gimp",
+      "inkscape",
+      "blender",
+      "ffmpeg",
+      "obs-studio",
+      "audacity",
+      "krita",
+      "darktable",
+      "rawtherapee"
+    ]
+  },
+  "features": [
+    "Image editing (GIMP)",
+    "Vector graphics (Inkscape)",
+    "3D modeling (Blender)",
+    "Video editing (FFmpeg)",
+    "Screen recording (OBS)",
+    "Audio editing (Audacity)",
+    "Digital painting (Krita)",
+    "Photo management (Darktable)",
+    "RAW processing (RawTherapee)"
+  ],
+  "dependencies": [],
+  "permissions": ["storage", "audio", "video", "gpu"],
+  "config": {
+    "gpuAcceleration": true,
+    "autoUpdate": true
+  }
+}

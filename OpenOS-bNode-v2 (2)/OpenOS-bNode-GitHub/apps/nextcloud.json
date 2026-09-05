@@ -1,0 +1,41 @@
+{
+  "app": "Nextcloud",
+  "description": "Self-hosted file sync and collaboration platform",
+  "version": "latest",
+  "category": "cloud-storage",
+  "preinstall": true,
+  "autostart": true,
+  "installation": {
+    "method": "docker",
+    "image": "nextcloud:latest",
+    "ports": ["80:80", "443:443"],
+    "volumes": ["/data/nextcloud:/var/www/html"],
+    "command": "docker run -d -p 80:80 -p 443:443 -v /data/nextcloud:/var/www/html nextcloud:latest"
+  },
+  "features": [
+    "File sync and sharing",
+    "Calendar and contacts",
+    "Collaborative editing",
+    "End-to-end encryption",
+    "Self-hosted on your machine",
+    "No vendor lock-in"
+  ],
+  "dependencies": ["docker"],
+  "permissions": [
+    "network",
+    "storage",
+    "system-admin"
+  ],
+  "config": {
+    "domain": "localhost",
+    "port": 80,
+    "https": true,
+    "dataDir": "/data/nextcloud",
+    "autoUpdate": true
+  },
+  "services": {
+    "web": "http://localhost",
+    "admin": "admin",
+    "defaultPassword": "generate"
+  }
+}

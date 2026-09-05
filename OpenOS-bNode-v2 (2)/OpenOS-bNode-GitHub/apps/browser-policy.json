@@ -1,0 +1,59 @@
+{
+  "app": "Browser Policy",
+  "description": "Privacy-focused browser configuration and Chrome ban",
+  "version": "latest",
+  "category": "security",
+  "preinstall": true,
+  "autostart": false,
+  "installation": {
+    "method": "policy",
+    "blocked": ["chrome", "chromium", "google-chrome"],
+    "allowed": [
+      "firefox",
+      "firefox-esr",
+      "brave",
+      "librewolf",
+      "ungoogled-chromium",
+      "tor-browser",
+      "midori",
+      "epiphany",
+      "lynx",
+      "w3m",
+      "links",
+      "elinks"
+    ]
+  },
+  "features": [
+    "Chrome installation blocked",
+    "Chromium installation blocked",
+    "Google Chrome installation blocked",
+    "Privacy-first browsers only",
+    "Firefox (privacy-focused)",
+    "Brave (ad-blocking)",
+    "LibreWolf (hardened Firefox)",
+    "Ungoogled Chromium (no Google)",
+    "Tor Browser (anonymity)",
+    "Text-based browsers (Lynx, W3m, Links)",
+    "Ad blocking",
+    "Tracking prevention",
+    "Fingerprinting protection",
+    "Cookie isolation",
+    "DNS over HTTPS",
+    "HTTPS enforcement",
+    "Extension security",
+    "Privacy policies"
+  ],
+  "dependencies": [],
+  "permissions": ["system-admin"],
+  "config": {
+    "chromeBlocked": true,
+    "chromiumBlocked": true,
+    "googleChromeBlocked": true,
+    "privacyFirst": true,
+    "trackingBlocked": true,
+    "adBlockingEnabled": true,
+    "dnsOverHttps": true,
+    "httpsOnly": true
+  },
+  "rationale": "Chrome collects excessive user data. Privacy-focused alternatives are pre-installed instead."
+}
